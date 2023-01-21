@@ -2,8 +2,8 @@
 
 #sudo apt update
 
-sudo apt install fuse -y
-sudo apt install inotify-tools -y
+#sudo apt install fuse -y
+#sudo apt install inotify-tools -y
 
 #/workspaces/nas-tools/rclone/rclone ls alist: --config="/workspaces/nas-tools/rclone/rclone.conf"
 
@@ -15,10 +15,10 @@ sudo apt install inotify-tools -y
 
 #$PWD/rclone mount alist:/ $PWD/../data/source --config="$PWD/rclone.conf" --vfs-cache-mode full --allow-non-empty --log-file $PWD/rclone.log --log-level NOTICE
 
-DIR="~/nas-data"
+DIR="$PWD/../../nas-data"
 
 if [ ! -d "$DIR" ]; then
-  cp -rf $PWD/../nas-data ~/
+  cp -rf $PWD/../nas-data $PWD/../../
 fi
 
-$PWD/rclone mount alist:/ ~/nas-data/source --config="$PWD/rclone.conf" --vfs-cache-mode full --allow-non-empty --log-file $PWD/rclone.log --log-level NOTICE
+$PWD/rclone mount alist:/ $DIR/source --config="$PWD/rclone.conf" --vfs-cache-mode full --allow-non-empty --log-file $PWD/rclone.log --log-level NOTICE
