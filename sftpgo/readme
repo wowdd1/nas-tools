@@ -1,0 +1,19 @@
+win10端口转发
+
+添加端口转发
+
+netsh interface portproxy add v4tov4 listenport=2023 connectaddress=172.27.168.217 connectport=2023
+
+New-NetFirewallRule -DisplayName "Allow Inbound TCP Port 2023" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 2023
+
+
+查看端口转发
+
+netsh interface portproxy show v4tov4
+
+
+删除端口转发
+
+netsh interface portproxy delete v4tov4 listenport=2023
+
+Remove-NetFirewallRule -DisplayName "Allow Inbound TCP Port 2023"

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-export NASTOOL_CONFIG="/workspaces/nas-tools/config/config.yaml"
+export NASTOOL_CONFIG="$PWD/config/config.yaml"
 python3 run.py
