@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#sudo apt update
-
-#sudo apt install fuse -y
-#sudo apt install inotify-tools -y
 
 #/workspaces/nas-tools/rclone/rclone ls alist: --config="/workspaces/nas-tools/rclone/rclone.conf"
 
