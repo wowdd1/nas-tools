@@ -17,4 +17,8 @@ if [ ! -d "$DIR" ]; then
   cp -rf $PWD/../nas-data $PWD/../../
 fi
 
+#sync
+#$PWD/rclone sync $DIR/source alist:/ -P
+
+#mound
 $PWD/rclone mount alist:/ $DIR/source --config="$PWD/rclone.conf" --vfs-cache-mode full --allow-non-empty --log-file $PWD/rclone.log --log-level NOTICE
