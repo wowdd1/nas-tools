@@ -1,6 +1,7 @@
 import os
 import threading
 import traceback
+import subprocess
 
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
@@ -309,6 +310,23 @@ class Sync(object):
             for observer in self._observer:
                 observer.stop()
         self._observer = []
+
+    def excuteCommand(self, com):
+	    ex = subprocess.Popen(com, stdout=subprocess.PIPE, shell=True)
+	    out, err  = ex.communicate()
+	    status = ex.wait()
+	    print("cmd in:", com)
+	    print("cmd out: ", out.decode())
+	    return out.decode()
+
+    def transfer_all_sync2(self):
+        log.info("transfer_all_sync2")
+        PROJECT_ABSOLUTE_PATH=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        print('PROJECT_ABSOLUTE_PATH:%s' % PROJECT_ABSOLUTE_PATH)
+
+        cmd = "cd " + PROJECT_ABSOLUTE_PATH + " && ./sync_file.sh"
+        self.excuteCommand(cmd)
+
 
     def transfer_all_sync(self):
         """

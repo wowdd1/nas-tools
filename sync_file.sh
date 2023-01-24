@@ -11,6 +11,25 @@ target_dir="$PWD/../nas-data/target"
 #python3 app/filetransfer.py -m softlink -s $source_dir -d $target_dir
 
 
+pid=`pgrep 'main.sh'`
+
+echo $pid
+
+if [ "$pid" = "" ]
+then
+  echo "nas tools not running"
+  
+  #nohup ./main.sh &
+  #sleep 5
+  #pid=`pgrep 'main.sh'`
+  #echo "main.sh pid: $pid"
+else
+  echo "main.sh is running pid: $pid"
+  #echo "kill $pid sftpgo"
+  #pgrep 'sftpgo'|xargs kill -9
+fi
+
+
 
 cd rclone
 

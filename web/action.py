@@ -254,6 +254,7 @@ class WebAction:
         else:
             os.system("pm2 restart NAStool")
 
+
     @staticmethod
     def handle_message_job(msg, client, in_from=SearchType.OT, user_id=None, user_name=None):
         """
@@ -266,6 +267,7 @@ class WebAction:
             "/ptt": {"func": Downloader().transfer, "desp": "下载文件转移"},
             "/pts": {"func": Sites().signin, "desp": "站点签到"},
             "/rst": {"func": Sync().transfer_all_sync, "desp": "目录同步"},
+            "/sync": {"func": Sync().transfer_all_sync2, "desp": "目录同步"},
             "/rss": {"func": Rss().rssdownload, "desp": "RSS订阅"},
             "/db": {"func": DoubanSync().sync, "desp": "豆瓣同步"}
         }
