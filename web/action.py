@@ -268,6 +268,7 @@ class WebAction:
             "/pts": {"func": Sites().signin, "desp": "站点签到"},
             "/rst": {"func": Sync().transfer_all_sync, "desp": "目录同步"},
             "/sync": {"func": Sync().transfer_all_sync2, "desp": "目录同步"},
+            "/remount": {"func": Sync().remount, "desp": "重新挂载"},
             "/rss": {"func": Rss().rssdownload, "desp": "RSS订阅"},
             "/db": {"func": DoubanSync().sync, "desp": "豆瓣同步"}
         }

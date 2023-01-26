@@ -31,27 +31,22 @@ fi
 
 
 
-cd rclone
+#cd rclone
+#./unmount.sh
+#nohup ./mount.sh &
+#cd ..
 
-
-./unmount.sh
-
-nohup ./mount.sh &
-
-
-cd ..
-
-echo "sleep 3 second"
-sleep 3
+#echo "sleep 3 second"
+#sleep 3
 
 echo "ls source dir:"
 ls $source_dir
 
-echo $PWD
+#echo $PWD
 
-echo "let nas tools sync"
+#echo "let nas tools sync"
 
-curl -X 'GET'   'http://localhost:8082/api/v1/sync/run'   -H 'accept: application/json' --header 'Authorization: GlkcvLuoygdevU2P'
+#curl -X 'GET'   'http://localhost:8082/api/v1/sync/run'   -H 'accept: application/json' --header 'Authorization: GlkcvLuoygdevU2P'
 
 
 

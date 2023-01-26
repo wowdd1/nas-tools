@@ -319,6 +319,15 @@ class Sync(object):
 	    print("cmd out: ", out.decode())
 	    return out.decode()
 
+
+    def remount(self):
+        log.info("rclone remount")
+        PROJECT_ABSOLUTE_PATH=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        print('PROJECT_ABSOLUTE_PATH:%s' % PROJECT_ABSOLUTE_PATH)
+
+        cmd = "cd " + PROJECT_ABSOLUTE_PATH + "/rclone" + " && ./remount.sh"
+        self.excuteCommand(cmd)
+
     def transfer_all_sync2(self):
         log.info("transfer_all_sync2")
         PROJECT_ABSOLUTE_PATH=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -326,6 +335,8 @@ class Sync(object):
 
         cmd = "cd " + PROJECT_ABSOLUTE_PATH + " && ./sync_file.sh"
         self.excuteCommand(cmd)
+
+        self.transfer_all_sync()
 
 
     def transfer_all_sync(self):
@@ -358,6 +369,7 @@ class Sync(object):
                 for path in PathUtils.get_dir_level1_medias(monpath, RMT_MEDIAEXT):
                     if PathUtils.is_invalid_path(path):
                         continue
+
                     ret, ret_msg = self.filetransfer.transfer_media(in_from=SyncType.MON,
                                                                     in_path=path,
                                                                     target_dir=target_path,
