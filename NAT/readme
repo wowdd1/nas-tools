@@ -1,0 +1,6 @@
+1. get token from https://dashboard.cpolar.com/
+
+
+2. run ./cpolar tcp 2022
+
+3. connect use sftp client
